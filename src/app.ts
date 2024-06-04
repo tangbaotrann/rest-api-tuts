@@ -3,6 +3,7 @@ const configDefault = require("config");
 
 import connect from "./utils/connect";
 import log from "./utils/logger";
+import routes from "./routes";
 
 const app = express();
 
@@ -12,4 +13,6 @@ app.listen(PORT, async () => {
   log.info(`Server running on PORT -> ${PORT}`);
 
   await connect();
+
+  routes(app);
 });
